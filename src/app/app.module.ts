@@ -9,15 +9,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PenggunaComponent } from './pengguna/pengguna.component';
 import { CreatePenggunaComponent } from './pengguna/create-pengguna/create-pengguna.component';
 import { UpdatePenggunaComponent } from './pengguna/update-pengguna/update-pengguna.component';
-import { DeletePenggunaComponent } from './pengguna/delete-pengguna/delete-pengguna.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PenggunaComponent,
     CreatePenggunaComponent,
-    UpdatePenggunaComponent,
-    DeletePenggunaComponent
+    UpdatePenggunaComponent
   ],
   imports: [
     BrowserModule,

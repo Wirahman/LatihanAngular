@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient, HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse  } from '@angular/common/http';
+import { Observable, throwError, of } from 'rxjs';
+import {catchError, retry, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,41 @@ export class PenggunaService {
     return this.http.get(this.baseUrl + '?page=' + pages);
   }
 
+  getDaftarPenggunaById(id: any) {
+    return this.http.get(this.baseUrl + '/' + id);
+  }
+
+  createPenggunaBaru(pengguna: Object): Observable<Object>  {
+    console.log('service createPenggunaBaru');
+    console.log(pengguna);
+    console.log("haha");
+    return this.http.post<Object>(this.baseUrl, pengguna, this.httpOptions)
+      .pipe(
+        catchError(this.handleError('Error Ketika Mendapatkan Data', pengguna))
+      );
+  }
+
+  updatePengguna() {
+
+  }
+
+  hapusPengguna(id: any) {
+    return this.http.delete(this.baseUrl + '/' + id, { responseType: 'text' });
+  }
+
   
+//   deleteMahasiswa(id: number): Observable<any> {
+//     // return this.http.delete('${this.baseUrl}/mahasiswa/${id}', { responseType: 'text' });
+//     return this.http.delete(this.baseUrl + '/mahasiswa/' + id, { responseType: 'text' });
+//   }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    };
+  }
+ 
 }
 
 

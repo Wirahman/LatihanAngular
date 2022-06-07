@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PenggunaModule} from "./model/pengguna.module";
-import { PenggunaService } from '../service/pengguna.service';
+import { PenggunaService } from './service/pengguna.service';
 
 // import { PenggunaModule, LoginFacebookModule } from "../../model/login/login.module";
 // import { LoginService } from '../../service/login/login.service';
@@ -26,7 +26,7 @@ export class PenggunaComponent implements OnInit {
 
   getSemuaPengguna() {
     this.penggunaService.getDaftarPengguna(this.pages).subscribe(
-      (      data: any) => {
+      (data: any) => {
         console.log(data);
         console.log(JSON.stringify(data));
         // console.log(JSON.stringify(data['Pengguna']['email']));
@@ -37,8 +37,38 @@ export class PenggunaComponent implements OnInit {
     );
   }
   
-  
-  tambahPengguna(){};
+  // Navigate
+  tambahPengguna(){
+    this.router.navigate(['/CreatePengguna']);
+  };
+
+  updatePengguna(id: any){
+    console.log("ID yang akan diupdate = " + id);
+    this.penggunaService.getDaftarPenggunaById(id).subscribe(
+      (data: any) => {
+        console.log("Update Pengguna");
+        console.log("data");
+        console.log(data);
+        console.log("json");
+        console.log(JSON.stringify(data));
+        // console.log(JSON.stringify(data['Pengguna']['email']));
+        this.pengguna = data.data;
+        console.log("Pengguna");
+        console.log(this.pengguna);
+      },(error: any) => console.log(error)
+    );
+  }
+
+  hapusPengguna(id: any){
+    console.log("ID yang akan dihapus = " + id);
+    this.penggunaService.hapusPengguna(id).subscribe(
+      (data: any)  => {
+        console.log(data);
+        console.log(JSON.stringify(data));
+        alert('Data dengan ID ' + id + " sudah dihapus");
+      },(error: any) => console.log(error)
+    );
+  }
 
 }
 

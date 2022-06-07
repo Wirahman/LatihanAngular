@@ -24,19 +24,15 @@
                 <td>{{row.last_name}}</td>
                 <td><img src={{row.avatar}} style="width:50px;"></td>
                 <td>Hapus setelah action sudah dibuat</td>
-                <!-- <td>
-                  <a (click)="readById(pengguna.customernumber)" class='btn btn-primary m-r-5px'>
-                      <span class='glyphicon glyphicon-eye-open'></span>
-                  </a>
-        
-                  <a (click)="updateCustomer(pengguna.customernumber)" class='btn btn-info m-r-5px'>
+                <td>
+                  <a (click)="updatePengguna(row.id)" class='btn btn-info m-r-5px'>
                       <span class='glyphicon glyphicon-edit'></span>
-                  </a>
+                  </a>&#160;&#160;
         
-                  <a (click)="deleteCustomer(pengguna.customernumber)" class='btn btn-danger m-r-5px'>
+                  <a (click)="hapusPengguna(row.id)" class='btn btn-danger m-r-5px'>
                       <span class='glyphicon glyphicon-remove'></span>
                   </a>
-                </td> -->
+                </td>
             </tr>
         </table>
     </div>
