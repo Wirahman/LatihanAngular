@@ -43,20 +43,7 @@ export class PenggunaComponent implements OnInit {
   };
 
   updatePengguna(id: any){
-    console.log("ID yang akan diupdate = " + id);
-    this.penggunaService.getDaftarPenggunaById(id).subscribe(
-      (data: any) => {
-        console.log("Update Pengguna");
-        console.log("data");
-        console.log(data);
-        console.log("json");
-        console.log(JSON.stringify(data));
-        // console.log(JSON.stringify(data['Pengguna']['email']));
-        this.pengguna = data.data;
-        console.log("Pengguna");
-        console.log(this.pengguna);
-      },(error: any) => console.log(error)
-    );
+    this.router.navigate(['/UpdatePengguna/'+id]);
   }
 
   hapusPengguna(id: any){

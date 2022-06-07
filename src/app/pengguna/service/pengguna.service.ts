@@ -37,19 +37,14 @@ export class PenggunaService {
       );
   }
 
-  updatePengguna() {
-
+  updatePengguna(id: any, value: any): Observable<Object> {
+    // return this.http.put('${this.baseUrl}/mahasiswa/${id}', value);
+    return this.http.put(this.baseUrl + '/' + id, value);
   }
 
   hapusPengguna(id: any) {
     return this.http.delete(this.baseUrl + '/' + id, { responseType: 'text' });
   }
-
-  
-//   deleteMahasiswa(id: number): Observable<any> {
-//     // return this.http.delete('${this.baseUrl}/mahasiswa/${id}', { responseType: 'text' });
-//     return this.http.delete(this.baseUrl + '/mahasiswa/' + id, { responseType: 'text' });
-//   }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

@@ -5,10 +5,10 @@ import { CreatePenggunaComponent } from "./pengguna/create-pengguna/create-pengg
 import { UpdatePenggunaComponent } from "./pengguna/update-pengguna/update-pengguna.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'latihan', pathMatch: 'full' },
+  { path: '', redirectTo: 'Pengguna', pathMatch: 'full' },
   { path: 'Pengguna', component: PenggunaComponent },
   { path: 'CreatePengguna', component: CreatePenggunaComponent },
-  { path: 'UpdatePengguna', component: UpdatePenggunaComponent },
+  { path: 'UpdatePengguna/:id', component: UpdatePenggunaComponent },
 
 ];
 

@@ -40,15 +40,11 @@ export class CreatePenggunaComponent implements OnInit {
          console.log(data);
          // console.log(JSON.stringify(data['Pengguna']['email']));
 
-        //  this.router.navigate(['/Pengguna']);
+         this.router.navigate(['/Pengguna']);
       }
     );
     this.penggunaService.createPenggunaBaru(this.pengguna);
     console.log('ok');
-  }
-
-  cancel() {
-    this.router.navigate(['/Pengguna']);
   }
 
   // validasi
@@ -105,6 +101,10 @@ export class CreatePenggunaComponent implements OnInit {
     this.validasiEmail();
     this.validasiNama();
     this.validasiAvatar();
+  }
+
+  cancel() {
+    this.router.navigate(['/Pengguna']);
   }
 
 }
